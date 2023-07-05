@@ -36,6 +36,7 @@ configure(allprojects) { project ->
         annotationProcessor 'org.projectlombok:lombok:1.18.28'
     }
 }
+
 // 管理子项目信息
 subprojects {
     tasks.withType(JavaCompile) {
