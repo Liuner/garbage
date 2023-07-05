@@ -1,1 +1,3 @@
 rootProject.name = 'garbage'
+include 'garbage-spi'
+
