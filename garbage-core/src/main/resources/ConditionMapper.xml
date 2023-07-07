@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.own.garbage.core.dao.ConditionMapper">
+
+	<!-- 插入单条数据 -->
+	<insert id="insert" parameterType="com.own.garbage.common.dto.ConditionDTO">
+		insert into condition
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="conditionId != null">
+				condition_id,
+			</if>
+			<if test="operator != null and operator != ''">
+				operator,
+			</if>
+			<if test="paramName != null and paramName != ''">
+				paramName,
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				paramValue,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="conditionId != null">
+				#{conditionId},
+			</if>
+			<if test="operator != null and operator != ''">
+				#{operator},
+			</if>
+			<if test="paramName != null and paramName != ''">
+				#{paramName},
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				#{paramValue},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据条件删除数据 -->
+	<delete id="deleteBy" parameterType="com.own.garbage.common.dto.ConditionDTO">
+		delete from condition
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+			<if test="operator != null and operator != ''">
+				and operator = #{operator}
+			</if>
+			<if test="paramName != null and paramName != ''">
+				and paramName = #{paramName}
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				and paramValue = #{paramValue}
+			</if>
+		</where>
+	</delete>
+
+	<!-- 根据主键更新数据（无主键表或者由于数据库工具没有读取到主键的情况下不可用） -->
+	<update id="updateById" parameterType="com.own.garbage.common.dto.ConditionDTO">
+		update condition
+		<set>
+			<if test="operator != null and operator != ''">
+				operator = #{operator},
+			</if>
+			<if test="paramName != null and paramName != ''">
+				paramName = #{paramName},
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				paramValue = #{paramValue},
+			</if>
+		</set>
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件更新数据 -->
+	<update id="updateBy">
+		update condition
+		<set>
+			<if test="set.conditionId != null">
+				condition_id = #{set.conditionId},
+			</if>
+			<if test="set.operator != null and set.operator != ''">
+				operator = #{set.operator},
+			</if>
+			<if test="set.paramName != null and set.paramName != ''">
+				paramName = #{set.paramName},
+			</if>
+			<if test="set.paramValue != null and set.paramValue != ''">
+				paramValue = #{set.paramValue},
+			</if>
+		</set>
+		<where>
+			<if test="where.conditionId != null">
+				and condition_id = #{where.conditionId}
+			</if>
+			<if test="where.operator != null and where.operator != ''">
+				and operator = #{where.operator}
+			</if>
+			<if test="where.paramName != null and where.paramName != ''">
+				and paramName = #{where.paramName}
+			</if>
+			<if test="where.paramValue != null and where.paramValue != ''">
+				and paramValue = #{where.paramValue}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件校验有多少条数据 -->
+	<select id="getCheckBy" parameterType="com.own.garbage.common.dto.ConditionDTO" resultType="java.lang.Integer">
+		select count(1) from condition
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+			<if test="operator != null and operator != ''">
+				and operator = #{operator}
+			</if>
+			<if test="paramName != null and paramName != ''">
+				and paramName = #{paramName}
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				and paramValue = #{paramValue}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询单条数据 -->
+	<select id="getModelBy" parameterType="com.own.garbage.common.dto.ConditionDTO" resultType="com.own.garbage.common.dto.ConditionDTO">
+		select
+			condition_id as conditionId
+			,operator as operator
+			,paramName as paramName
+			,paramValue as paramValue
+		from condition
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+			<if test="operator != null and operator != ''">
+				and operator = #{operator}
+			</if>
+			<if test="paramName != null and paramName != ''">
+				and paramName = #{paramName}
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				and paramValue = #{paramValue}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询列表数据 -->
+	<select id="getList" parameterType="com.own.garbage.common.dto.ConditionDTO" resultType="com.own.garbage.common.dto.ConditionDTO">
+		select
+			condition_id as conditionId
+			,operator as operator
+			,paramName as paramName
+			,paramValue as paramValue
+		from condition
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+			<if test="operator != null and operator != ''">
+				and operator = #{operator}
+			</if>
+			<if test="paramName != null and paramName != ''">
+				and paramName = #{paramName}
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				and paramValue = #{paramValue}
+			</if>
+		</where>
+		<!-- 排序信息 -->
+		<if test="orderBy != null and orderBy != ''">
+			ORDER BY ${orderBy}
+		</if>
+	</select>
+
+	<!-- 根据条件分页查询列表数据 -->
+	<select id="getListPage" parameterType="com.own.garbage.common.dto.ConditionDTO" resultType="com.own.garbage.common.dto.ConditionDTO">
+		select
+			condition_id as conditionId
+			,operator as operator
+			,paramName as paramName
+			,paramValue as paramValue
+		from condition
+		<where>
+			<if test="conditionId != null">
+				and condition_id = #{conditionId}
+			</if>
+			<if test="operator != null and operator != ''">
+				and operator = #{operator}
+			</if>
+			<if test="paramName != null and paramName != ''">
+				and paramName = #{paramName}
+			</if>
+			<if test="paramValue != null and paramValue != ''">
+				and paramValue = #{paramValue}
+			</if>
+		</where>
+		<!-- 排序信息 -->
+		<if test="orderBy != null and orderBy != ''">
+			ORDER BY ${orderBy}
+		</if>
+	</select>
+
+	<!-- 批量插入数据 -->
+	<insert id="insertBatch" parameterType="java.util.List">
+		insert into condition(
+			condition_id
+			,operator
+			,paramName
+			,paramValue
+		) values
+		<foreach collection="list" item="item" index="index" separator=",">
+		(
+			#{item.conditionId}
+			,#{item.operator}
+			,#{item.paramName}
+			,#{item.paramValue}
+		)
+		</foreach>
+	</insert>
+
+</mapper>

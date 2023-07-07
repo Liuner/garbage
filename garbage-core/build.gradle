@@ -1,0 +1,6 @@
+dependencies {
+    api project(':garbage-judge')
+    api 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
+    api 'mysql:mysql-connector-java:5.1.47'
+    api 'com.alibaba:druid-spring-boot-starter:1.1.14'
+}

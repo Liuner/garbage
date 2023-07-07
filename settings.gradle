@@ -1,3 +1,7 @@
 rootProject.name = 'garbage'
 include 'garbage-spi'
+include 'garbage-judge'
+include 'garbage-common'
+include 'garbage-starter'
+include 'garbage-core'
 

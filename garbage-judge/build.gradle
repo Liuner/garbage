@@ -1,0 +1,4 @@
+dependencies {
+    api project(':garbage-spi')
+    api project(':garbage-common')
+}
