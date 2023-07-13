@@ -26,38 +26,16 @@
             </PatternLayout>
         </File>
 
-        <!-- 自定义日志文件 -->
-        <RollingFile name="customLogFile" fileName="./logs/${displayName}_RESPONSE.log"
-                     filePattern="./logs/${displayName}_%d{yyyy-MM-dd}_CUSTOM-%i.log">
-            <!-- 设置过滤，保证业务日志文件里面仅保存【BUSINESS】级别的日志信息 -->
-            <Filters>
-                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <ThresholdFilter level="BUSINESS" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
-            <PatternLayout>
-                <pattern>${busiPattern}</pattern>
-            </PatternLayout>
-            <Policies>
-                <!-- SizeBasedTriggeringPolicy 表示当文件大小大于指定size时，生成新的文件保存日志 -->
-                <SizeBasedTriggeringPolicy size="500 MB"/>
-                <!-- TimeBasedTriggeringPolicy需要和filePattern配套使用，单位由filePattern配置的时间最小粒度确定，如{yyyy-MM-dd}最小单位是dd[天]，则会每一天新建一个文件保存日志。 -->
-                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
-            </Policies>
-        </RollingFile>
     </Appenders>
 
     <Loggers>
         <logger name="com.alibaba" level="WARN"/>
-        <logger name="com.taobao" level="WARN"/>
-        <logger name="com.ohaotian" level="DEBUG"/>
-        <logger name="RocketmqClient" level="WARN"/>
         <!-- sql日志打印-->
         <logger name="com.own.garbage" level="INFO"/>
         <logger name="com.own.garbage.core.dao" level="DEBUG"/>
 
         <Root level="INFO">
             <AppenderRef ref="console"/>
-            <AppenderRef ref="rollingFile"/>
             <AppenderRef ref="error"/>
         </Root>
     </Loggers>

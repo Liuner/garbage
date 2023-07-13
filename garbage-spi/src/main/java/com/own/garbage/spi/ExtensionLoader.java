@@ -3,7 +3,6 @@ package com.own.garbage.spi;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.xml.ws.Holder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -22,9 +21,13 @@ import java.util.stream.Collectors;
 @Slf4j
 public final class ExtensionLoader<T> {
 
-    private static final String GARBAGE_DIRECTORY = "META-INF/garbage/";
+    private static final String META_INF_GARBAGE = "META-INF/garbage/";
 
     private static final Map<Class<?>, ExtensionLoader<?>> LOADERS = new ConcurrentHashMap<>();
+
+    private final Class<T> clazz;
+
+    private final ClassLoader classLoader;
 
     private final Holder<Map<String, Class<?>>> cachedClasses = new Holder<>();
 
@@ -33,10 +36,6 @@ public final class ExtensionLoader<T> {
     private final Map<Class<?>, Object> joinInstances = new ConcurrentHashMap<>();
 
     private String cachedDefaultName;
-
-    private final Class<T> clazz;
-
-    private final ClassLoader classLoader;
 
     /**
      * Instantiates a new Extension loader.
@@ -208,7 +207,7 @@ public final class ExtensionLoader<T> {
      * Load files under SHENYU_DIRECTORY.
      */
     private void loadDirectory(final Map<String, Class<?>> classes) {
-        String fileName = GARBAGE_DIRECTORY + clazz.getName();
+        String fileName = META_INF_GARBAGE + clazz.getName();
         try {
             Enumeration<URL> urls = Objects.nonNull(this.classLoader) ? classLoader.getResources(fileName)
                     : ClassLoader.getSystemResources(fileName);
