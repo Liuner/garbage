@@ -8,11 +8,12 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellRangeAddressList;
-import org.apache.poi.xssf.usermodel.XSSFDataValidationHelper;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,12 +40,11 @@ public class PoiValidationUtil {
                 }
 
                 // Get the data validation rules from Sheet1
-                DataValidationHelper validationHelperSheet1 = new XSSFDataValidationHelper((XSSFSheet) sheet);
                 // 一共多少列
                 int totalColumns  = sheet.getRow(header1).getLastCellNum();
                 DataValidation dataValidation;
                 for (int columnIndex = 0; columnIndex < totalColumns; columnIndex ++) {
-                    dataValidation =  getDataValidationForColumn(validationHelperSheet1, sheet, columnIndex);
+                    dataValidation =  getDataValidationForColumn(sheet, columnIndex);
                     if (dataValidation != null) {
                         DataValidationConstraint constraint = dataValidation.getValidationConstraint();
                         System.out.println(StrFormatter.format("Sheet1, Column {} Data Validation Formula: {}", columnIndex, constraint.getFormula1()));
@@ -58,7 +58,7 @@ public class PoiValidationUtil {
     }
 
     // Helper method to get the data validation for a specific column in a sheet
-    private static DataValidation getDataValidationForColumn(DataValidationHelper validationHelper, Sheet sheet, int column) {
+    private static DataValidation getDataValidationForColumn(Sheet sheet, int column) {
         for (DataValidation validation : sheet.getDataValidations()) {
             CellRangeAddressList addressList = validation.getRegions();
             if (addressList != null && addressList.getCellRangeAddresses().length > 0) {

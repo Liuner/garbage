@@ -25,7 +25,10 @@ public class EasyExcelUtil {
 
         List<UserData> dateList = UserData.getDemoData();
 
-        EasyExcel.write(excelPath).head(head()).sheet(1).doWrite(dateList);
+        EasyExcel.write(excelPath)
+                .head(head())
+                .sheet(1)
+                .doWrite(dateList);
     }
 
     /**

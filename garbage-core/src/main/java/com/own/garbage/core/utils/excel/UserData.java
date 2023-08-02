@@ -1,5 +1,6 @@
 package com.own.garbage.core.utils.excel;
 
+import cn.hutool.core.date.DateTime;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,13 +23,28 @@ public class UserData {
 
     private String email;
 
+    private String address;
+
+    private String createTime;
+
+    private String extend;
+
+    private String method;
+
+    private String sex;
+
     public static List<UserData> getDemoData() {
         List<UserData> userDataList = new ArrayList<>();
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 5; i ++) {
             userDataList.add(UserData.builder()
-                    .name("Name" + i)
-                    .age(i)
-                    .email(i + "@dd.com")
+                            .name("Name" + i)
+                            .age(i)
+                            .email(i + "@dd.com")
+                            .createTime(new DateTime().toString("yyyy-MM-dd HH:mm:ss"))
+                            .address("重庆" + i)
+                            .extend("个")
+                            .method("自动上架")
+                            .sex("男")
                     .build());
         }
         return userDataList;
