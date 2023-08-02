@@ -47,7 +47,7 @@ public class PoiValidationUtil {
                     dataValidation =  getDataValidationForColumn(sheet, columnIndex);
                     if (dataValidation != null) {
                         DataValidationConstraint constraint = dataValidation.getValidationConstraint();
-                        System.out.println(StrFormatter.format("Sheet1, Column {} Data Validation Formula: {}", columnIndex, constraint.getFormula1()));
+                        System.out.println(StrFormatter.format("{}, Column {} Data Validation Formula: {}", sheetName, columnIndex, constraint.getFormula1()));
                     }
                 }
                 System.out.println("=========================================");

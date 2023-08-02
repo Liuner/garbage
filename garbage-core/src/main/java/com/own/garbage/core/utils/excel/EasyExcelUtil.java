@@ -21,7 +21,7 @@ public class EasyExcelUtil {
     }
 
     private static void easyExcelWrite() {
-        String excelPath = "E:\\User\\Liuner\\Desktop\\writeTest.xlsx";
+        String excelPath = "E:\\User\\windows\\Desktop\\writeTest.xlsx";
 
         List<UserData> dateList = UserData.getDemoData();
 
