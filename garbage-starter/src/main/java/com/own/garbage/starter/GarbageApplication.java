@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 作者 @author jingxin
  */
 @SpringBootApplication(scanBasePackages = {"com.own.garbage.*"})
-@MapperScan(basePackages = "com.own.garbage.dao")
+@MapperScan(basePackages = "com.own.garbage.core.dao")
 public class GarbageApplication {
 
     public static void main(String[] args) {

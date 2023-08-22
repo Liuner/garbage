@@ -1,4 +1,4 @@
-package com.own.garbage.core.utils.excel;
+package com.own.garbage.core.utils.excel.poi;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.file.FileNameUtil;
@@ -15,7 +15,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName PoiValidationUtil
@@ -24,6 +26,10 @@ import java.util.List;
  * @Date 2023/7/25 0025 16:26
  */
 public class PoiValidationUtil {
+
+    Map<String, String> dataFieldMap = new HashMap<>(16);
+    // 有校验的列，用来后面做规则设置<sheetName,<列号，字段>>
+    Map<String, Map<Integer,String>> validateMap = new HashMap<>(16);
 
     public static void getRule() throws IOException, InvalidFormatException {
         String excelFileName = "demo.xlsx";

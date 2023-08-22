@@ -1,8 +1,9 @@
-package com.own.garbage.core.utils.excel;
+package com.own.garbage.core.utils.excel.easy;
 
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.util.ListUtils;
+import com.own.garbage.core.utils.excel.UserData;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;

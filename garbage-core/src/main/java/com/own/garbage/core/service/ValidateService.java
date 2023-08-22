@@ -9,4 +9,6 @@ package com.own.garbage.core.service;
 public interface ValidateService {
 
     Object validate(Object reqBo);
+
+    Object getExcel(Object reqBo);
 }

@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.own.garbage.core.dao.SysMenuMapper">
+
+	<!-- 插入单条数据 -->
+	<insert id="insert" parameterType="com.own.garbage.core.dao.po.SysMenuPO">
+		insert into sys_menu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="menuId != null">
+				menu_id,
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				application_code,
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				menu_code,
+			</if>
+			<if test="menuName != null and menuName != ''">
+				menu_name,
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				menu_subname,
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				menu_meta,
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				menu_component,
+			</if>
+			<if test="parentId != null">
+				parent_id,
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				menu_tree_path,
+			</if>
+			<if test="deep != null">
+				deep,
+			</if>
+			<if test="sort != null">
+				sort,
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				domain_code,
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				menu_uri,
+			</if>
+			<if test="menuType != null and menuType != ''">
+				menu_type,
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				button_type,
+			</if>
+			<if test="openType != null and openType != ''">
+				open_type,
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				menu_replace,
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				menu_target,
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				menu_icon,
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				menu_img,
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				menu_status,
+			</if>
+			<if test="remark != null and remark != ''">
+				remark,
+			</if>
+			<if test="createOperId != null">
+				create_oper_id,
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				create_oper_name,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateOperId != null">
+				update_oper_id,
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				update_oper_name,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				ext_field1,
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				ext_field2,
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				ext_field3,
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				ext_field4,
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				ext_field5,
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				ext_field6,
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				ext_field7,
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				ext_field8,
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				ext_field9,
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				ext_field10,
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				del_flag,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="menuId != null">
+				#{menuId},
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				#{applicationCode},
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				#{menuCode},
+			</if>
+			<if test="menuName != null and menuName != ''">
+				#{menuName},
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				#{menuSubname},
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				#{menuMeta},
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				#{menuComponent},
+			</if>
+			<if test="parentId != null">
+				#{parentId},
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				#{menuTreePath},
+			</if>
+			<if test="deep != null">
+				#{deep},
+			</if>
+			<if test="sort != null">
+				#{sort},
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				#{domainCode},
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				#{menuUri},
+			</if>
+			<if test="menuType != null and menuType != ''">
+				#{menuType},
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				#{buttonType},
+			</if>
+			<if test="openType != null and openType != ''">
+				#{openType},
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				#{menuReplace},
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				#{menuTarget},
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				#{menuIcon},
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				#{menuImg},
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				#{menuStatus},
+			</if>
+			<if test="remark != null and remark != ''">
+				#{remark},
+			</if>
+			<if test="createOperId != null">
+				#{createOperId},
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				#{createOperName},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="updateOperId != null">
+				#{updateOperId},
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				#{updateOperName},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime},
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				#{extField1},
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				#{extField2},
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				#{extField3},
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				#{extField4},
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				#{extField5},
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				#{extField6},
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				#{extField7},
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				#{extField8},
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				#{extField9},
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				#{extField10},
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				#{delFlag},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据条件删除数据 -->
+	<delete id="deleteBy" parameterType="com.own.garbage.core.dao.po.SysMenuPO">
+		delete from sys_menu
+		<where>
+			<if test="menuId != null">
+				and menu_id = #{menuId}
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				and application_code = #{applicationCode}
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				and menu_code = #{menuCode}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				and menu_subname = #{menuSubname}
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				and menu_meta = #{menuMeta}
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				and menu_component = #{menuComponent}
+			</if>
+			<if test="parentId != null">
+				and parent_id = #{parentId}
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				and menu_tree_path = #{menuTreePath}
+			</if>
+			<if test="deep != null">
+				and deep = #{deep}
+			</if>
+			<if test="sort != null">
+				and sort = #{sort}
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				and domain_code = #{domainCode}
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				and menu_uri = #{menuUri}
+			</if>
+			<if test="menuType != null and menuType != ''">
+				and menu_type = #{menuType}
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				and button_type = #{buttonType}
+			</if>
+			<if test="openType != null and openType != ''">
+				and open_type = #{openType}
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				and menu_replace = #{menuReplace}
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				and menu_target = #{menuTarget}
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				and menu_icon = #{menuIcon}
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				and menu_img = #{menuImg}
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				and menu_status = #{menuStatus}
+			</if>
+			<if test="remark != null and remark != ''">
+				and remark = #{remark}
+			</if>
+			<if test="createOperId != null">
+				and create_oper_id = #{createOperId}
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				and create_oper_name = #{createOperName}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="createTimeStart != null">
+				and create_time <![CDATA[ >= ]]> #{createTimeStart}
+			</if>
+			<if test="createTimeEnd != null">
+				and create_time <![CDATA[ <= ]]> #{createTimeEnd}
+			</if>
+			<if test="updateOperId != null">
+				and update_oper_id = #{updateOperId}
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				and update_oper_name = #{updateOperName}
+			</if>
+			<if test="updateTime != null">
+				and update_time = #{updateTime}
+			</if>
+			<if test="updateTimeStart != null">
+				and update_time <![CDATA[ >= ]]> #{updateTimeStart}
+			</if>
+			<if test="updateTimeEnd != null">
+				and update_time <![CDATA[ <= ]]> #{updateTimeEnd}
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				and ext_field1 = #{extField1}
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				and ext_field2 = #{extField2}
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				and ext_field3 = #{extField3}
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				and ext_field4 = #{extField4}
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				and ext_field5 = #{extField5}
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				and ext_field6 = #{extField6}
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				and ext_field7 = #{extField7}
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				and ext_field8 = #{extField8}
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				and ext_field9 = #{extField9}
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				and ext_field10 = #{extField10}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				and del_flag = #{delFlag}
+			</if>
+		</where>
+	</delete>
+
+	<!-- 根据主键更新数据（无主键表或者由于数据库工具没有读取到主键的情况下不可用） -->
+	<update id="updateById" parameterType="com.own.garbage.core.dao.po.SysMenuPO">
+		update sys_menu
+		<set>
+			<if test="applicationCode != null and applicationCode != ''">
+				application_code = #{applicationCode},
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				menu_code = #{menuCode},
+			</if>
+			<if test="menuName != null and menuName != ''">
+				menu_name = #{menuName},
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				menu_subname = #{menuSubname},
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				menu_meta = #{menuMeta},
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				menu_component = #{menuComponent},
+			</if>
+			<if test="parentId != null">
+				parent_id = #{parentId},
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				menu_tree_path = #{menuTreePath},
+			</if>
+			<if test="deep != null">
+				deep = #{deep},
+			</if>
+			<if test="sort != null">
+				sort = #{sort},
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				domain_code = #{domainCode},
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				menu_uri = #{menuUri},
+			</if>
+			<if test="menuType != null and menuType != ''">
+				menu_type = #{menuType},
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				button_type = #{buttonType},
+			</if>
+			<if test="openType != null and openType != ''">
+				open_type = #{openType},
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				menu_replace = #{menuReplace},
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				menu_target = #{menuTarget},
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				menu_icon = #{menuIcon},
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				menu_img = #{menuImg},
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				menu_status = #{menuStatus},
+			</if>
+			<if test="remark != null and remark != ''">
+				remark = #{remark},
+			</if>
+			<if test="createOperId != null">
+				create_oper_id = #{createOperId},
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				create_oper_name = #{createOperName},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+			<if test="updateOperId != null">
+				update_oper_id = #{updateOperId},
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				update_oper_name = #{updateOperName},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime},
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				ext_field1 = #{extField1},
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				ext_field2 = #{extField2},
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				ext_field3 = #{extField3},
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				ext_field4 = #{extField4},
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				ext_field5 = #{extField5},
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				ext_field6 = #{extField6},
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				ext_field7 = #{extField7},
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				ext_field8 = #{extField8},
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				ext_field9 = #{extField9},
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				ext_field10 = #{extField10},
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				del_flag = #{delFlag},
+			</if>
+		</set>
+		<where>
+			<if test="menuId != null">
+				and menu_id = #{menuId}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件更新数据 -->
+	<update id="updateBy">
+		update sys_menu
+		<set>
+			<if test="set.menuId != null">
+				menu_id = #{set.menuId},
+			</if>
+			<if test="set.applicationCode != null and set.applicationCode != ''">
+				application_code = #{set.applicationCode},
+			</if>
+			<if test="set.menuCode != null and set.menuCode != ''">
+				menu_code = #{set.menuCode},
+			</if>
+			<if test="set.menuName != null and set.menuName != ''">
+				menu_name = #{set.menuName},
+			</if>
+			<if test="set.menuSubname != null and set.menuSubname != ''">
+				menu_subname = #{set.menuSubname},
+			</if>
+			<if test="set.menuMeta != null and set.menuMeta != ''">
+				menu_meta = #{set.menuMeta},
+			</if>
+			<if test="set.menuComponent != null and set.menuComponent != ''">
+				menu_component = #{set.menuComponent},
+			</if>
+			<if test="set.parentId != null">
+				parent_id = #{set.parentId},
+			</if>
+			<if test="set.menuTreePath != null and set.menuTreePath != ''">
+				menu_tree_path = #{set.menuTreePath},
+			</if>
+			<if test="set.deep != null">
+				deep = #{set.deep},
+			</if>
+			<if test="set.sort != null">
+				sort = #{set.sort},
+			</if>
+			<if test="set.domainCode != null and set.domainCode != ''">
+				domain_code = #{set.domainCode},
+			</if>
+			<if test="set.menuUri != null and set.menuUri != ''">
+				menu_uri = #{set.menuUri},
+			</if>
+			<if test="set.menuType != null and set.menuType != ''">
+				menu_type = #{set.menuType},
+			</if>
+			<if test="set.buttonType != null and set.buttonType != ''">
+				button_type = #{set.buttonType},
+			</if>
+			<if test="set.openType != null and set.openType != ''">
+				open_type = #{set.openType},
+			</if>
+			<if test="set.menuReplace != null and set.menuReplace != ''">
+				menu_replace = #{set.menuReplace},
+			</if>
+			<if test="set.menuTarget != null and set.menuTarget != ''">
+				menu_target = #{set.menuTarget},
+			</if>
+			<if test="set.menuIcon != null and set.menuIcon != ''">
+				menu_icon = #{set.menuIcon},
+			</if>
+			<if test="set.menuImg != null and set.menuImg != ''">
+				menu_img = #{set.menuImg},
+			</if>
+			<if test="set.menuStatus != null and set.menuStatus != ''">
+				menu_status = #{set.menuStatus},
+			</if>
+			<if test="set.remark != null and set.remark != ''">
+				remark = #{set.remark},
+			</if>
+			<if test="set.createOperId != null">
+				create_oper_id = #{set.createOperId},
+			</if>
+			<if test="set.createOperName != null and set.createOperName != ''">
+				create_oper_name = #{set.createOperName},
+			</if>
+			<if test="set.createTime != null">
+				create_time = #{set.createTime},
+			</if>
+			<if test="set.updateOperId != null">
+				update_oper_id = #{set.updateOperId},
+			</if>
+			<if test="set.updateOperName != null and set.updateOperName != ''">
+				update_oper_name = #{set.updateOperName},
+			</if>
+			<if test="set.updateTime != null">
+				update_time = #{set.updateTime},
+			</if>
+			<if test="set.extField1 != null and set.extField1 != ''">
+				ext_field1 = #{set.extField1},
+			</if>
+			<if test="set.extField2 != null and set.extField2 != ''">
+				ext_field2 = #{set.extField2},
+			</if>
+			<if test="set.extField3 != null and set.extField3 != ''">
+				ext_field3 = #{set.extField3},
+			</if>
+			<if test="set.extField4 != null and set.extField4 != ''">
+				ext_field4 = #{set.extField4},
+			</if>
+			<if test="set.extField5 != null and set.extField5 != ''">
+				ext_field5 = #{set.extField5},
+			</if>
+			<if test="set.extField6 != null and set.extField6 != ''">
+				ext_field6 = #{set.extField6},
+			</if>
+			<if test="set.extField7 != null and set.extField7 != ''">
+				ext_field7 = #{set.extField7},
+			</if>
+			<if test="set.extField8 != null and set.extField8 != ''">
+				ext_field8 = #{set.extField8},
+			</if>
+			<if test="set.extField9 != null and set.extField9 != ''">
+				ext_field9 = #{set.extField9},
+			</if>
+			<if test="set.extField10 != null and set.extField10 != ''">
+				ext_field10 = #{set.extField10},
+			</if>
+			<if test="set.delFlag != null and set.delFlag != ''">
+				del_flag = #{set.delFlag},
+			</if>
+		</set>
+		<where>
+			<if test="where.menuId != null">
+				and menu_id = #{where.menuId}
+			</if>
+			<if test="where.applicationCode != null and where.applicationCode != ''">
+				and application_code = #{where.applicationCode}
+			</if>
+			<if test="where.menuCode != null and where.menuCode != ''">
+				and menu_code = #{where.menuCode}
+			</if>
+			<if test="where.menuName != null and where.menuName != ''">
+				and menu_name = #{where.menuName}
+			</if>
+			<if test="where.menuSubname != null and where.menuSubname != ''">
+				and menu_subname = #{where.menuSubname}
+			</if>
+			<if test="where.menuMeta != null and where.menuMeta != ''">
+				and menu_meta = #{where.menuMeta}
+			</if>
+			<if test="where.menuComponent != null and where.menuComponent != ''">
+				and menu_component = #{where.menuComponent}
+			</if>
+			<if test="where.parentId != null">
+				and parent_id = #{where.parentId}
+			</if>
+			<if test="where.menuTreePath != null and where.menuTreePath != ''">
+				and menu_tree_path = #{where.menuTreePath}
+			</if>
+			<if test="where.deep != null">
+				and deep = #{where.deep}
+			</if>
+			<if test="where.sort != null">
+				and sort = #{where.sort}
+			</if>
+			<if test="where.domainCode != null and where.domainCode != ''">
+				and domain_code = #{where.domainCode}
+			</if>
+			<if test="where.menuUri != null and where.menuUri != ''">
+				and menu_uri = #{where.menuUri}
+			</if>
+			<if test="where.menuType != null and where.menuType != ''">
+				and menu_type = #{where.menuType}
+			</if>
+			<if test="where.buttonType != null and where.buttonType != ''">
+				and button_type = #{where.buttonType}
+			</if>
+			<if test="where.openType != null and where.openType != ''">
+				and open_type = #{where.openType}
+			</if>
+			<if test="where.menuReplace != null and where.menuReplace != ''">
+				and menu_replace = #{where.menuReplace}
+			</if>
+			<if test="where.menuTarget != null and where.menuTarget != ''">
+				and menu_target = #{where.menuTarget}
+			</if>
+			<if test="where.menuIcon != null and where.menuIcon != ''">
+				and menu_icon = #{where.menuIcon}
+			</if>
+			<if test="where.menuImg != null and where.menuImg != ''">
+				and menu_img = #{where.menuImg}
+			</if>
+			<if test="where.menuStatus != null and where.menuStatus != ''">
+				and menu_status = #{where.menuStatus}
+			</if>
+			<if test="where.remark != null and where.remark != ''">
+				and remark = #{where.remark}
+			</if>
+			<if test="where.createOperId != null">
+				and create_oper_id = #{where.createOperId}
+			</if>
+			<if test="where.createOperName != null and where.createOperName != ''">
+				and create_oper_name = #{where.createOperName}
+			</if>
+			<if test="where.createTime != null">
+				and create_time = #{where.createTime}
+			</if>
+			<if test="where.updateOperId != null">
+				and update_oper_id = #{where.updateOperId}
+			</if>
+			<if test="where.updateOperName != null and where.updateOperName != ''">
+				and update_oper_name = #{where.updateOperName}
+			</if>
+			<if test="where.updateTime != null">
+				and update_time = #{where.updateTime}
+			</if>
+			<if test="where.extField1 != null and where.extField1 != ''">
+				and ext_field1 = #{where.extField1}
+			</if>
+			<if test="where.extField2 != null and where.extField2 != ''">
+				and ext_field2 = #{where.extField2}
+			</if>
+			<if test="where.extField3 != null and where.extField3 != ''">
+				and ext_field3 = #{where.extField3}
+			</if>
+			<if test="where.extField4 != null and where.extField4 != ''">
+				and ext_field4 = #{where.extField4}
+			</if>
+			<if test="where.extField5 != null and where.extField5 != ''">
+				and ext_field5 = #{where.extField5}
+			</if>
+			<if test="where.extField6 != null and where.extField6 != ''">
+				and ext_field6 = #{where.extField6}
+			</if>
+			<if test="where.extField7 != null and where.extField7 != ''">
+				and ext_field7 = #{where.extField7}
+			</if>
+			<if test="where.extField8 != null and where.extField8 != ''">
+				and ext_field8 = #{where.extField8}
+			</if>
+			<if test="where.extField9 != null and where.extField9 != ''">
+				and ext_field9 = #{where.extField9}
+			</if>
+			<if test="where.extField10 != null and where.extField10 != ''">
+				and ext_field10 = #{where.extField10}
+			</if>
+			<if test="where.delFlag != null and where.delFlag != ''">
+				and del_flag = #{where.delFlag}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件校验有多少条数据 -->
+	<select id="getCheckBy" parameterType="com.own.garbage.core.dao.po.SysMenuPO" resultType="java.lang.Integer">
+		select count(1) from sys_menu
+		<where>
+			<if test="menuId != null">
+				and menu_id = #{menuId}
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				and application_code = #{applicationCode}
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				and menu_code = #{menuCode}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				and menu_subname = #{menuSubname}
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				and menu_meta = #{menuMeta}
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				and menu_component = #{menuComponent}
+			</if>
+			<if test="parentId != null">
+				and parent_id = #{parentId}
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				and menu_tree_path = #{menuTreePath}
+			</if>
+			<if test="deep != null">
+				and deep = #{deep}
+			</if>
+			<if test="sort != null">
+				and sort = #{sort}
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				and domain_code = #{domainCode}
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				and menu_uri = #{menuUri}
+			</if>
+			<if test="menuType != null and menuType != ''">
+				and menu_type = #{menuType}
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				and button_type = #{buttonType}
+			</if>
+			<if test="openType != null and openType != ''">
+				and open_type = #{openType}
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				and menu_replace = #{menuReplace}
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				and menu_target = #{menuTarget}
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				and menu_icon = #{menuIcon}
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				and menu_img = #{menuImg}
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				and menu_status = #{menuStatus}
+			</if>
+			<if test="remark != null and remark != ''">
+				and remark = #{remark}
+			</if>
+			<if test="createOperId != null">
+				and create_oper_id = #{createOperId}
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				and create_oper_name = #{createOperName}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="createTimeStart != null">
+				and create_time <![CDATA[ >= ]]> #{createTimeStart}
+			</if>
+			<if test="createTimeEnd != null">
+				and create_time <![CDATA[ <= ]]> #{createTimeEnd}
+			</if>
+			<if test="updateOperId != null">
+				and update_oper_id = #{updateOperId}
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				and update_oper_name = #{updateOperName}
+			</if>
+			<if test="updateTime != null">
+				and update_time = #{updateTime}
+			</if>
+			<if test="updateTimeStart != null">
+				and update_time <![CDATA[ >= ]]> #{updateTimeStart}
+			</if>
+			<if test="updateTimeEnd != null">
+				and update_time <![CDATA[ <= ]]> #{updateTimeEnd}
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				and ext_field1 = #{extField1}
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				and ext_field2 = #{extField2}
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				and ext_field3 = #{extField3}
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				and ext_field4 = #{extField4}
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				and ext_field5 = #{extField5}
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				and ext_field6 = #{extField6}
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				and ext_field7 = #{extField7}
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				and ext_field8 = #{extField8}
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				and ext_field9 = #{extField9}
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				and ext_field10 = #{extField10}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				and del_flag = #{delFlag}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询单条数据 -->
+	<select id="getModelBy" parameterType="com.own.garbage.core.dao.po.SysMenuPO" resultType="com.own.garbage.core.dao.po.SysMenuPO">
+		select
+			menu_id as menuId
+			,application_code as applicationCode
+			,menu_code as menuCode
+			,menu_name as menuName
+			,menu_subname as menuSubname
+			,menu_meta as menuMeta
+			,menu_component as menuComponent
+			,parent_id as parentId
+			,menu_tree_path as menuTreePath
+			,deep as deep
+			,sort as sort
+			,domain_code as domainCode
+			,menu_uri as menuUri
+			,menu_type as menuType
+			,button_type as buttonType
+			,open_type as openType
+			,menu_replace as menuReplace
+			,menu_target as menuTarget
+			,menu_icon as menuIcon
+			,menu_img as menuImg
+			,menu_status as menuStatus
+			,remark as remark
+			,create_oper_id as createOperId
+			,create_oper_name as createOperName
+			,create_time as createTime
+			,update_oper_id as updateOperId
+			,update_oper_name as updateOperName
+			,update_time as updateTime
+			,ext_field1 as extField1
+			,ext_field2 as extField2
+			,ext_field3 as extField3
+			,ext_field4 as extField4
+			,ext_field5 as extField5
+			,ext_field6 as extField6
+			,ext_field7 as extField7
+			,ext_field8 as extField8
+			,ext_field9 as extField9
+			,ext_field10 as extField10
+			,del_flag as delFlag
+		from sys_menu
+		<where>
+			<if test="menuId != null">
+				and menu_id = #{menuId}
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				and application_code = #{applicationCode}
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				and menu_code = #{menuCode}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				and menu_subname = #{menuSubname}
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				and menu_meta = #{menuMeta}
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				and menu_component = #{menuComponent}
+			</if>
+			<if test="parentId != null">
+				and parent_id = #{parentId}
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				and menu_tree_path = #{menuTreePath}
+			</if>
+			<if test="deep != null">
+				and deep = #{deep}
+			</if>
+			<if test="sort != null">
+				and sort = #{sort}
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				and domain_code = #{domainCode}
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				and menu_uri = #{menuUri}
+			</if>
+			<if test="menuType != null and menuType != ''">
+				and menu_type = #{menuType}
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				and button_type = #{buttonType}
+			</if>
+			<if test="openType != null and openType != ''">
+				and open_type = #{openType}
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				and menu_replace = #{menuReplace}
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				and menu_target = #{menuTarget}
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				and menu_icon = #{menuIcon}
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				and menu_img = #{menuImg}
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				and menu_status = #{menuStatus}
+			</if>
+			<if test="remark != null and remark != ''">
+				and remark = #{remark}
+			</if>
+			<if test="createOperId != null">
+				and create_oper_id = #{createOperId}
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				and create_oper_name = #{createOperName}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="createTimeStart != null">
+				and create_time <![CDATA[ >= ]]> #{createTimeStart}
+			</if>
+			<if test="createTimeEnd != null">
+				and create_time <![CDATA[ <= ]]> #{createTimeEnd}
+			</if>
+			<if test="updateOperId != null">
+				and update_oper_id = #{updateOperId}
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				and update_oper_name = #{updateOperName}
+			</if>
+			<if test="updateTime != null">
+				and update_time = #{updateTime}
+			</if>
+			<if test="updateTimeStart != null">
+				and update_time <![CDATA[ >= ]]> #{updateTimeStart}
+			</if>
+			<if test="updateTimeEnd != null">
+				and update_time <![CDATA[ <= ]]> #{updateTimeEnd}
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				and ext_field1 = #{extField1}
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				and ext_field2 = #{extField2}
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				and ext_field3 = #{extField3}
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				and ext_field4 = #{extField4}
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				and ext_field5 = #{extField5}
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				and ext_field6 = #{extField6}
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				and ext_field7 = #{extField7}
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				and ext_field8 = #{extField8}
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				and ext_field9 = #{extField9}
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				and ext_field10 = #{extField10}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				and del_flag = #{delFlag}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询列表数据 -->
+	<select id="getList" parameterType="com.own.garbage.core.dao.po.SysMenuPO" resultType="com.own.garbage.core.dao.po.SysMenuPO">
+		select
+			menu_id as menuId
+			,application_code as applicationCode
+			,menu_code as menuCode
+			,menu_name as menuName
+			,menu_subname as menuSubname
+			,menu_meta as menuMeta
+			,menu_component as menuComponent
+			,parent_id as parentId
+			,menu_tree_path as menuTreePath
+			,deep as deep
+			,sort as sort
+			,domain_code as domainCode
+			,menu_uri as menuUri
+			,menu_type as menuType
+			,button_type as buttonType
+			,open_type as openType
+			,menu_replace as menuReplace
+			,menu_target as menuTarget
+			,menu_icon as menuIcon
+			,menu_img as menuImg
+			,menu_status as menuStatus
+			,remark as remark
+			,create_oper_id as createOperId
+			,create_oper_name as createOperName
+			,create_time as createTime
+			,update_oper_id as updateOperId
+			,update_oper_name as updateOperName
+			,update_time as updateTime
+			,ext_field1 as extField1
+			,ext_field2 as extField2
+			,ext_field3 as extField3
+			,ext_field4 as extField4
+			,ext_field5 as extField5
+			,ext_field6 as extField6
+			,ext_field7 as extField7
+			,ext_field8 as extField8
+			,ext_field9 as extField9
+			,ext_field10 as extField10
+			,del_flag as delFlag
+		from sys_menu
+		<where>
+			<if test="menuId != null">
+				and menu_id = #{menuId}
+			</if>
+			<if test="applicationCode != null and applicationCode != ''">
+				and application_code = #{applicationCode}
+			</if>
+			<if test="menuCode != null and menuCode != ''">
+				and menu_code = #{menuCode}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="menuSubname != null and menuSubname != ''">
+				and menu_subname = #{menuSubname}
+			</if>
+			<if test="menuMeta != null and menuMeta != ''">
+				and menu_meta = #{menuMeta}
+			</if>
+			<if test="menuComponent != null and menuComponent != ''">
+				and menu_component = #{menuComponent}
+			</if>
+			<if test="parentId != null">
+				and parent_id = #{parentId}
+			</if>
+			<if test="menuTreePath != null and menuTreePath != ''">
+				and menu_tree_path = #{menuTreePath}
+			</if>
+			<if test="deep != null">
+				and deep = #{deep}
+			</if>
+			<if test="sort != null">
+				and sort = #{sort}
+			</if>
+			<if test="domainCode != null and domainCode != ''">
+				and domain_code = #{domainCode}
+			</if>
+			<if test="menuUri != null and menuUri != ''">
+				and menu_uri = #{menuUri}
+			</if>
+			<if test="menuType != null and menuType != ''">
+				and menu_type = #{menuType}
+			</if>
+			<if test="buttonType != null and buttonType != ''">
+				and button_type = #{buttonType}
+			</if>
+			<if test="openType != null and openType != ''">
+				and open_type = #{openType}
+			</if>
+			<if test="menuReplace != null and menuReplace != ''">
+				and menu_replace = #{menuReplace}
+			</if>
+			<if test="menuTarget != null and menuTarget != ''">
+				and menu_target = #{menuTarget}
+			</if>
+			<if test="menuIcon != null and menuIcon != ''">
+				and menu_icon = #{menuIcon}
+			</if>
+			<if test="menuImg != null and menuImg != ''">
+				and menu_img = #{menuImg}
+			</if>
+			<if test="menuStatus != null and menuStatus != ''">
+				and menu_status = #{menuStatus}
+			</if>
+			<if test="remark != null and remark != ''">
+				and remark = #{remark}
+			</if>
+			<if test="createOperId != null">
+				and create_oper_id = #{createOperId}
+			</if>
+			<if test="createOperName != null and createOperName != ''">
+				and create_oper_name = #{createOperName}
+			</if>
+			<if test="createTime != null">
+				and create_time = #{createTime}
+			</if>
+			<if test="createTimeStart != null">
+				and create_time <![CDATA[ >= ]]> #{createTimeStart}
+			</if>
+			<if test="createTimeEnd != null">
+				and create_time <![CDATA[ <= ]]> #{createTimeEnd}
+			</if>
+			<if test="updateOperId != null">
+				and update_oper_id = #{updateOperId}
+			</if>
+			<if test="updateOperName != null and updateOperName != ''">
+				and update_oper_name = #{updateOperName}
+			</if>
+			<if test="updateTime != null">
+				and update_time = #{updateTime}
+			</if>
+			<if test="updateTimeStart != null">
+				and update_time <![CDATA[ >= ]]> #{updateTimeStart}
+			</if>
+			<if test="updateTimeEnd != null">
+				and update_time <![CDATA[ <= ]]> #{updateTimeEnd}
+			</if>
+			<if test="extField1 != null and extField1 != ''">
+				and ext_field1 = #{extField1}
+			</if>
+			<if test="extField2 != null and extField2 != ''">
+				and ext_field2 = #{extField2}
+			</if>
+			<if test="extField3 != null and extField3 != ''">
+				and ext_field3 = #{extField3}
+			</if>
+			<if test="extField4 != null and extField4 != ''">
+				and ext_field4 = #{extField4}
+			</if>
+			<if test="extField5 != null and extField5 != ''">
+				and ext_field5 = #{extField5}
+			</if>
+			<if test="extField6 != null and extField6 != ''">
+				and ext_field6 = #{extField6}
+			</if>
+			<if test="extField7 != null and extField7 != ''">
+				and ext_field7 = #{extField7}
+			</if>
+			<if test="extField8 != null and extField8 != ''">
+				and ext_field8 = #{extField8}
+			</if>
+			<if test="extField9 != null and extField9 != ''">
+				and ext_field9 = #{extField9}
+			</if>
+			<if test="extField10 != null and extField10 != ''">
+				and ext_field10 = #{extField10}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				and del_flag = #{delFlag}
+			</if>
+		</where>
+		<!-- 排序信息 -->
+		<if test="orderBy != null and orderBy != ''">
+			ORDER BY ${orderBy}
+		</if>
+	</select>
+
+	<!-- 批量插入数据 -->
+	<insert id="insertBatch" parameterType="java.util.List">
+		insert into sys_menu(
+			menu_id
+			,application_code
+			,menu_code
+			,menu_name
+			,menu_subname
+			,menu_meta
+			,menu_component
+			,parent_id
+			,menu_tree_path
+			,deep
+			,sort
+			,domain_code
+			,menu_uri
+			,menu_type
+			,button_type
+			,open_type
+			,menu_replace
+			,menu_target
+			,menu_icon
+			,menu_img
+			,menu_status
+			,remark
+			,create_oper_id
+			,create_oper_name
+			,create_time
+			,update_oper_id
+			,update_oper_name
+			,update_time
+			,ext_field1
+			,ext_field2
+			,ext_field3
+			,ext_field4
+			,ext_field5
+			,ext_field6
+			,ext_field7
+			,ext_field8
+			,ext_field9
+			,ext_field10
+			,del_flag
+		) values
+		<foreach collection="list" item="item" index="index" separator=",">
+		(
+			#{item.menuId}
+			,#{item.applicationCode}
+			,#{item.menuCode}
+			,#{item.menuName}
+			,#{item.menuSubname}
+			,#{item.menuMeta}
+			,#{item.menuComponent}
+			,#{item.parentId}
+			,#{item.menuTreePath}
+			,#{item.deep}
+			,#{item.sort}
+			,#{item.domainCode}
+			,#{item.menuUri}
+			,#{item.menuType}
+			,#{item.buttonType}
+			,#{item.openType}
+			,#{item.menuReplace}
+			,#{item.menuTarget}
+			,#{item.menuIcon}
+			,#{item.menuImg}
+			,#{item.menuStatus}
+			,#{item.remark}
+			,#{item.createOperId}
+			,#{item.createOperName}
+			,#{item.createTime}
+			,#{item.updateOperId}
+			,#{item.updateOperName}
+			,#{item.updateTime}
+			,#{item.extField1}
+			,#{item.extField2}
+			,#{item.extField3}
+			,#{item.extField4}
+			,#{item.extField5}
+			,#{item.extField6}
+			,#{item.extField7}
+			,#{item.extField8}
+			,#{item.extField9}
+			,#{item.extField10}
+			,#{item.delFlag}
+		)
+		</foreach>
+	</insert>
+
+</mapper>

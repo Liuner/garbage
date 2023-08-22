@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.own.garbage.core.dao.ControllerMenuMapMapper">
+
+	<!-- 插入单条数据 -->
+	<insert id="insert" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO">
+		insert into controller_menu_map
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="controller != null and controller != ''">
+				controller,
+			</if>
+			<if test="pageName != null and pageName != ''">
+				page_name,
+			</if>
+			<if test="route != null and route != ''">
+				route,
+			</if>
+			<if test="menuName != null and menuName != ''">
+				menu_name,
+			</if>
+			<if test="functionName != null and functionName != ''">
+				function_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="controller != null and controller != ''">
+				#{controller},
+			</if>
+			<if test="pageName != null and pageName != ''">
+				#{pageName},
+			</if>
+			<if test="route != null and route != ''">
+				#{route},
+			</if>
+			<if test="menuName != null and menuName != ''">
+				#{menuName},
+			</if>
+			<if test="functionName != null and functionName != ''">
+				#{functionName},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据条件删除数据 -->
+	<delete id="deleteBy" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO">
+		delete from controller_menu_map
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="controller != null and controller != ''">
+				and controller = #{controller}
+			</if>
+			<if test="pageName != null and pageName != ''">
+				and page_name = #{pageName}
+			</if>
+			<if test="route != null and route != ''">
+				and route = #{route}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="functionName != null and functionName != ''">
+				and function_name = #{functionName}
+			</if>
+		</where>
+	</delete>
+
+	<!-- 根据主键更新数据（无主键表或者由于数据库工具没有读取到主键的情况下不可用） -->
+	<update id="updateById" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO">
+		update controller_menu_map
+		<set>
+			<if test="controller != null and controller != ''">
+				controller = #{controller},
+			</if>
+			<if test="pageName != null and pageName != ''">
+				page_name = #{pageName},
+			</if>
+			<if test="route != null and route != ''">
+				route = #{route},
+			</if>
+			<if test="menuName != null and menuName != ''">
+				menu_name = #{menuName},
+			</if>
+			<if test="functionName != null and functionName != ''">
+				function_name = #{functionName},
+			</if>
+		</set>
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件更新数据 -->
+	<update id="updateBy">
+		update controller_menu_map
+		<set>
+			<if test="set.id != null">
+				id = #{set.id},
+			</if>
+			<if test="set.controller != null and set.controller != ''">
+				controller = #{set.controller},
+			</if>
+			<if test="set.pageName != null and set.pageName != ''">
+				page_name = #{set.pageName},
+			</if>
+			<if test="set.route != null and set.route != ''">
+				route = #{set.route},
+			</if>
+			<if test="set.menuName != null and set.menuName != ''">
+				menu_name = #{set.menuName},
+			</if>
+			<if test="set.functionName != null and set.functionName != ''">
+				function_name = #{set.functionName},
+			</if>
+		</set>
+		<where>
+			<if test="where.id != null">
+				and id = #{where.id}
+			</if>
+			<if test="where.controller != null and where.controller != ''">
+				and controller = #{where.controller}
+			</if>
+			<if test="where.pageName != null and where.pageName != ''">
+				and page_name = #{where.pageName}
+			</if>
+			<if test="where.route != null and where.route != ''">
+				and route = #{where.route}
+			</if>
+			<if test="where.menuName != null and where.menuName != ''">
+				and menu_name = #{where.menuName}
+			</if>
+			<if test="where.functionName != null and where.functionName != ''">
+				and function_name = #{where.functionName}
+			</if>
+		</where>
+	</update>
+
+	<!-- 根据条件校验有多少条数据 -->
+	<select id="getCheckBy" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO" resultType="java.lang.Integer">
+		select count(1) from controller_menu_map
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="controller != null and controller != ''">
+				and controller = #{controller}
+			</if>
+			<if test="pageName != null and pageName != ''">
+				and page_name = #{pageName}
+			</if>
+			<if test="route != null and route != ''">
+				and route = #{route}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="functionName != null and functionName != ''">
+				and function_name = #{functionName}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询单条数据 -->
+	<select id="getModelBy" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO" resultType="com.own.garbage.core.dao.po.ControllerMenuMapPO">
+		select
+			id as id
+			,controller as controller
+			,page_name as pageName
+			,route as route
+			,menu_name as menuName
+			,function_name as functionName
+		from controller_menu_map
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="controller != null and controller != ''">
+				and controller = #{controller}
+			</if>
+			<if test="pageName != null and pageName != ''">
+				and page_name = #{pageName}
+			</if>
+			<if test="route != null and route != ''">
+				and route = #{route}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="functionName != null and functionName != ''">
+				and function_name = #{functionName}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据条件查询列表数据 -->
+	<select id="getList" parameterType="com.own.garbage.core.dao.po.ControllerMenuMapPO" resultType="com.own.garbage.core.dao.po.ControllerMenuMapPO">
+		select
+			id as id
+			,controller as controller
+			,page_name as pageName
+			,route as route
+			,menu_name as menuName
+			,function_name as functionName
+		from controller_menu_map
+		<where>
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="controller != null and controller != ''">
+				and controller = #{controller}
+			</if>
+			<if test="pageName != null and pageName != ''">
+				and page_name = #{pageName}
+			</if>
+			<if test="route != null and route != ''">
+				and route = #{route}
+			</if>
+			<if test="menuName != null and menuName != ''">
+				and menu_name = #{menuName}
+			</if>
+			<if test="functionName != null and functionName != ''">
+				and function_name = #{functionName}
+			</if>
+		</where>
+		<!-- 排序信息 -->
+		<if test="orderBy != null and orderBy != ''">
+			ORDER BY ${orderBy}
+		</if>
+	</select>
+
+	<!-- 批量插入数据 -->
+	<insert id="insertBatch" parameterType="java.util.List">
+		insert into controller_menu_map(
+			id
+			,controller
+			,page_name
+			,route
+			,menu_name
+			,function_name
+		) values
+		<foreach collection="list" item="item" index="index" separator=",">
+		(
+			#{item.id}
+			,#{item.controller}
+			,#{item.pageName}
+			,#{item.route}
+			,#{item.menuName}
+			,#{item.functionName}
+		)
+		</foreach>
+	</insert>
+
+</mapper>

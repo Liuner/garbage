@@ -1,6 +1,6 @@
 package utilsTest;
 
-import com.own.garbage.core.utils.excel.PoiValidationUtil;
+import com.own.garbage.core.utils.excel.poi.PoiValidationUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Test;
 
